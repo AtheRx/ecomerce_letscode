@@ -3,10 +3,11 @@
 
 [caixa]
 Recibo v
-	* Lista<Produto> 
+	//* Lista<Produto>
+	* CarrinhoDeCompra //Voltei para o carrinho porque assim consigo usar o método que retorna uma produto não modificável.
 	* FormaDePagamento
 	* Cliente	
-	:: Recibo(FormaDePagamento, Lista<Produto>, Cliente)
+	:: Recibo(FormaDePagamento, CarrinhoDeCompra, Cliente)
 	:: void imprimeRecibo() //Imprime os atributos.
 Checkout
 	* Recibo recibo
@@ -14,6 +15,11 @@ Checkout
 		recibo = new Recibo(FormaDePagamento, Lista<Produto>, Cliente)
 	}
 	:: Recibo getRecibo
+
+CarrinhoDeCompra
+	* Set<Produto>
+	:: void adicionaProduto(Produto)
+	:: Set<Produto> getProdutos() //retorna set não modificável
 		
 [pagamento]
 FormaDePagamento
