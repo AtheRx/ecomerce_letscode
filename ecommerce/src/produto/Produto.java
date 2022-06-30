@@ -14,11 +14,21 @@ public class Produto {
         this.categoria = categoria;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public Set<CategoriaDeProduto> getCategoria() {
+        return categoria;
+    }
+
     @Override
     public String toString() {
         return "Produto [categoria=" + categoria + ", nome=" + nome + ", preco=" + preco + "]";
     }
-
-    
     
 }

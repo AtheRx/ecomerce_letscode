@@ -7,4 +7,8 @@ public class Cliente {
         this.nome = nome;
     }
 
+    public String getNome(){
+        return this.nome;
+    }
+
 }

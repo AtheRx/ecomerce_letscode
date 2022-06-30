@@ -25,7 +25,7 @@ public class App {
         formas.forEach(p -> formasp.add(p));
 
         Recibo recibo = sessao.realizaCheckout(formasp.get(0));
-        recibo.imprimeRecibo();
+        recibo.imprimir();
 
     }
 }
