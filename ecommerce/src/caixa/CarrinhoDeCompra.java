@@ -13,6 +13,10 @@ public class CarrinhoDeCompra {
         carrinhoComProdutos.add(produto);
     }
 
+    public void removerProdutos(Produto produto){
+        carrinhoComProdutos.remove(produto);
+    }
+
     public Set<Produto> getProdutos(){
         return Collections.unmodifiableSet(carrinhoComProdutos);
     }

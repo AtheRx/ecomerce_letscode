@@ -1,9 +1,7 @@
 package cliente;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
-
+import caixa.CarrinhoDeCompra;
 import caixa.Checkout;
 import caixa.Recibo;
 import pagamento.FormaDePagamento;
@@ -13,14 +11,14 @@ import produto.ProdutoDao;
 
 public class Sessao {
 
-    List<Produto> carrinho;
+    CarrinhoDeCompra carrinhoDeCompra;
     Cliente cliente;
     ProdutoDao estoque;
     PagamentoDao pagamentoDao;
 
     public Sessao(Cliente cliente) {
         this.cliente = cliente;
-        this.carrinho = new ArrayList<>();
+        this.carrinhoDeCompra = new CarrinhoDeCompra();
     }
 
     public Set<Produto> getProdutos() {
@@ -28,11 +26,11 @@ public class Sessao {
     }
 
     public void adicionaProdutoNoCarrinho(Produto produto) {
-        this.carrinho.add(produto);
+        this.carrinhoDeCompra.adicionarProdutos(produto);
     }
 
     public void removerProdutoDoCarrinho(Produto produto) {
-        this.carrinho.remove(produto);
+        this.carrinhoDeCompra.removerProdutos(produto);
     }
 
     public Set<FormaDePagamento> getFormaDePagamento() {
