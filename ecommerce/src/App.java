@@ -1,28 +1,31 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
-import caixa.CarrinhoDeCompra;
-import caixa.Checkout;
+import caixa.Recibo;
 import cliente.Cliente;
 import cliente.Sessao;
-import pagamento.BBPay;
 import pagamento.FormaDePagamento;
 import produto.Produto;
-import produto.ProdutoDao;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
         Cliente cliente = new Cliente("Fulano de Tal");
         Sessao sessao = new Sessao(cliente);
-        FormaDePagamento formaDePagamento = new BBPay();
-        Set<Produto> setProdutos = new ProdutoDao().getProdutos();
 
-        CarrinhoDeCompra carrinho = new CarrinhoDeCompra();
+        Set<Produto> estoque = sessao.getProdutos();
+        List<Produto> estoqueDisponivel = new ArrayList<>();
+        estoque.forEach(e -> estoqueDisponivel.add(e));
+        sessao.adicionaProdutoNoCarrinho(estoqueDisponivel.get(0));
+        sessao.adicionaProdutoNoCarrinho(estoqueDisponivel.get(1));
 
-        System.out.println(carrinho.getProdutos());
+        Set<FormaDePagamento> formas = sessao.getFormaDePagamento();
+        List<FormaDePagamento> formasp = new ArrayList<>();
+        formas.forEach(p -> formasp.add(p));
 
-        Checkout checkout = new Checkout();
-        checkout.fecharCompra(cliente, formaDePagamento, carrinho);
+        Recibo recibo = sessao.realizaCheckout(formasp.get(0));
+        recibo.imprimeRecibo();
 
     }
 }

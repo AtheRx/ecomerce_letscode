@@ -13,16 +13,18 @@ public class Sessao {
 
     CarrinhoDeCompra carrinhoDeCompra;
     Cliente cliente;
-    ProdutoDao estoque;
+    ProdutoDao estoqueDao;
     PagamentoDao pagamentoDao;
 
     public Sessao(Cliente cliente) {
         this.cliente = cliente;
         this.carrinhoDeCompra = new CarrinhoDeCompra();
+        this.estoqueDao = new ProdutoDao();
+        this.pagamentoDao = new PagamentoDao();
     }
 
     public Set<Produto> getProdutos() {
-        return this.estoque.getProdutos();
+        return this.estoqueDao.getProdutos();
     }
 
     public void adicionaProdutoNoCarrinho(Produto produto) {
@@ -37,13 +39,10 @@ public class Sessao {
         return this.pagamentoDao.getFormasDePagamento();
     }
 
+    public Recibo realizaCheckout(FormaDePagamento formaDePagamento){
 
-    // Aqui precido da implementação de Checkout e Recibo funcionando.
-    // public Recibo realizaCheckout(FormaDePagamento formaDePagamento){
-
-    //     Checkout checkout = new Checkout(formaDePagamento, this.carrinho, this.cliente);
-	// 	return checkout.getRecibo();
-        
-    // }
+        Checkout checkout = new Checkout(formaDePagamento, this.carrinhoDeCompra, this.cliente);
+		return checkout.getRecibo();
+    }
 
 }
