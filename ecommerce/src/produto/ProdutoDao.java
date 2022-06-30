@@ -1,6 +1,7 @@
 package produto;
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,5 +26,10 @@ public class ProdutoDao {
             )
         )
             
-    ); 
+    );
+
+    public Set<Produto> getProdutos() {
+        return Collections.unmodifiableSet(produtos);
+    }
 }
+
