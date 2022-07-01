@@ -84,7 +84,7 @@ public class ProdutoDao {
 
 
     public static Map<Integer, Produto> getProdutos() {
-        return produtosMap;
+        return Collections.unmodifiableMap(produtosMap);
     }
 
     // public static Produto getProduto(String nome){

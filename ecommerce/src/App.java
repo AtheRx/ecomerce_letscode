@@ -26,12 +26,12 @@ public class App {
         sessao.adicionaProdutoNoCarrinho(estoque.get(2222));
 
         
-        Set<FormaDePagamento> formas = sessao.getFormaDePagamento();
-        List<FormaDePagamento> formasp = new ArrayList<>();
-        formas.forEach(p -> formasp.add(p));
+        Map<Integer, FormaDePagamento> formas = sessao.getFormaDePagamento();
+        // List<FormaDePagamento> formasp = new ArrayList<>();
+        // formas.forEach(p -> formasp.add(p));
 
         
-        sessao.realizaCheckout(formasp.get(0));
+        sessao.realizaCheckout(formas.get(1111));
 
     }
 }

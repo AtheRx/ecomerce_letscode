@@ -36,7 +36,7 @@ public class Sessao {
         this.carrinhoDeCompra.removerProdutos(produto);
     }
 
-    public Set<FormaDePagamento> getFormaDePagamento() {
+    public Map<Integer, FormaDePagamento> getFormaDePagamento() {
         return this.pagamentoDao.getFormasDePagamento();
     }
 
