@@ -56,9 +56,9 @@ Sessão v
 	:: adicionaProdutoNoCarrinho(Produto)
 	:: removerProdutoDoCarrinho(Produto)
 	:: lista<FormaDePagamento> getFormaDePagamento()
-	:: Recibo realizaCheckout(FormaDePagamento){
+	:: void realizaCheckout(FormaDePagamento){
 		Checkout checkout = new Checkout(FormaDePagamento, Lista<Produto>, Cliente)
-		return getRecibo()
+		 checkout.getRecibo().imprimeRecibo()
 	}
  	
 

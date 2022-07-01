@@ -1,5 +1,6 @@
 package cliente;
 
+import java.util.Map;
 import java.util.Set;
 import caixa.CarrinhoDeCompra;
 import caixa.Checkout;
@@ -23,7 +24,7 @@ public class Sessao {
         this.pagamentoDao = new PagamentoDao();
     }
 
-    public Set<Produto> getProdutos() {
+    public Map<Integer, Produto> getProdutos() {
         return this.estoqueDao.getProdutos();
     }
 

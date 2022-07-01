@@ -17,9 +17,9 @@ public class CarrinhoDeCompra {
         carrinhoComProdutos.add(produto);
     }
 
-    public void adicionarProdutoDoProdutoDao(String nome){
-        carrinhoComProdutos.add(ProdutoDao.getProduto(nome));
-    }
+    // public void adicionarProdutoDoProdutoDao(String nome){
+    //     carrinhoComProdutos.add(ProdutoDao.getProduto(nome));
+    // }
 
     public void removerProdutos(Produto produto){
         carrinhoComProdutos.remove(produto);
