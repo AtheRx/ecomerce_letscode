@@ -40,10 +40,10 @@ public class Sessao {
         return this.pagamentoDao.getFormasDePagamento();
     }
 
-    public Recibo realizaCheckout(FormaDePagamento formaDePagamento){
+    public void realizaCheckout(FormaDePagamento formaDePagamento){
 
         Checkout checkout = new Checkout(formaDePagamento, this.carrinhoDeCompra, this.cliente);
-		return checkout.getRecibo();
+		checkout.getRecibo().imprimir();
     }
 
 }

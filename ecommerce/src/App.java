@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import caixa.Recibo;
 import cliente.Cliente;
 import cliente.Sessao;
 import pagamento.FormaDePagamento;
@@ -32,8 +31,7 @@ public class App {
         formas.forEach(p -> formasp.add(p));
 
         
-        Recibo recibo = sessao.realizaCheckout(formasp.get(0));
-        recibo.imprimir();
+        sessao.realizaCheckout(formasp.get(0));
 
     }
 }
